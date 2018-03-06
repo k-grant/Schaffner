@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Schaffner_Server.Common.DataSources;
+using Schaffner_Server.Common.Interfaces;
 using Schaffner_Server.ConductorService;
 using Schaffner_Server.Repositories;
 
@@ -23,6 +25,8 @@ namespace Schaffner_Server
 
             services.AddSingleton<IBusSystemRepository, BusSystemRepository>();
             services.AddSingleton<IConductorService, ConductorService.ConductorService>();
+            IBusSystemDataSource d = new SampleDataSource_A();
+            services.AddTransient<IBusSystemDataSource, SampleDataSource_A>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

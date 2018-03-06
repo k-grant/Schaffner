@@ -5,11 +5,19 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server", "Schaffner-Server\Schaffner_Server.csproj", "{7C5C451B-5079-4CA4-88DC-5C24A174117B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.Common", "Schaffner_Server.Common\Schaffner_Server.Common.csproj", "{02E928A0-0628-4632-8CBD-7E10E0A85F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Common", "Schaffner_Server.Common\Schaffner_Server.Common.csproj", "{02E928A0-0628-4632-8CBD-7E10E0A85F9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.ConductorService", "Schaffner_Server.ConductorService\Schaffner_Server.ConductorService.csproj", "{1D2B998F-CCBE-4FF5-8144-71DEC02BADD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.ConductorService", "Schaffner_Server.ConductorService\Schaffner_Server.ConductorService.csproj", "{1D2B998F-CCBE-4FF5-8144-71DEC02BADD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.Repositories", "Schaffner_Server.Repositories\Schaffner_Server.Repositories.csproj", "{72C0E7D9-78AE-4AD8-A334-319407A6B26B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Repositories", "Schaffner_Server.Repositories\Schaffner_Server.Repositories.csproj", "{72C0E7D9-78AE-4AD8-A334-319407A6B26B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{72A22EDB-C812-49F9-AC39-EC6119695998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.Tests", "Schaffner_Server.Tests\Schaffner_Server.Tests.csproj", "{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.ConductorService.Tests", "Schaffner_Server.ConductorService.Tests\Schaffner_Server.ConductorService.Tests.csproj", "{F3B09570-527D-4F96-8FB3-2200654A69C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.Repositories.Tests", "Schaffner_Server.Repositories.Tests\Schaffner_Server.Repositories.Tests.csproj", "{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +41,26 @@ Global
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
+		{F3B09570-527D-4F96-8FB3-2200654A69C0} = {72A22EDB-C812-49F9-AC39-EC6119695998}
+		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9E759E1-D874-4D06-8059-5800B8555447}

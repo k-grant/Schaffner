@@ -27,7 +27,7 @@ namespace Schaffner_Server.Controllers
 
                 return Ok(stops);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest($"Server encountered an error returning all stops.");
             }
@@ -47,7 +47,7 @@ namespace Schaffner_Server.Controllers
             {
                 return BadRequest($"{ex.Message}");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
             }
