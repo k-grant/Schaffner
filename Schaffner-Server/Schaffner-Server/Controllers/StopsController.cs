@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Schaffner_Server.Common.Models;
 using Schaffner_Server.ConductorService;
+using System;
+using System.Collections.Generic;
 
 namespace Schaffner_Server.Controllers
 {
@@ -30,7 +27,7 @@ namespace Schaffner_Server.Controllers
 
                 return Ok(stops);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest($"Server encountered an error returning all stops.");
             }
@@ -46,14 +43,14 @@ namespace Schaffner_Server.Controllers
                 IStop stop = _conductorService.GetStop(stopId);
                 return Ok(stop);
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 return BadRequest($"{ex.Message}");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
             }
-        }            
+        }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Schaffner_Server.Common.Models;
+﻿using Schaffner_Server.Common.Models;
 using Schaffner_Server.Repositories;
+using System.Collections.Generic;
 
 namespace Schaffner_Server.ConductorService
 {

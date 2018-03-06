@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Schaffner_Server.Common.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using Schaffner_Server.Common.Models;
 
 namespace Schaffner_Server.Repositories
 {
