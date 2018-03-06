@@ -8,7 +8,6 @@ namespace Schaffner_Server.Common.Models
     {
         private int _id;
         private string _name;
-        private IEnumerable<IArrivalPrediction> _predictions;
 
         public int Id
         {
@@ -18,18 +17,6 @@ namespace Schaffner_Server.Common.Models
         public string Name
         {
             get { return _name; }
-        }
-
-        public IEnumerable<IArrivalPrediction> Predictions
-        {
-            get
-            {
-                return _predictions;
-            }
-            set
-            {
-                _predictions = value;
-            }
         }
 
         public Stop(int id, string name)

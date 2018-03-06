@@ -11,7 +11,7 @@ namespace Schaffner_Server.ConductorService.Tests
         {
             IBusSystemRepository repo = Substitute.For<IBusSystemRepository>();
 
-            IConductorService condctrServ = new ConductorService(repo);
+            IConductorService condctrServ = new ConductorService();
         }
 
     }

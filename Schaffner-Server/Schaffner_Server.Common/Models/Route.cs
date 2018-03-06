@@ -10,7 +10,7 @@ namespace Schaffner_Server.Common.Models
         private string _name;
         private int _direction;
 
-        public Route(int id, string name, int direction)
+        public Route(int id, string name, int direction = 0)
         {
             _id = id;
             _name = name;

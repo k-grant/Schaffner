@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Schaffner_Server.Common.Models;
 using Schaffner_Server.ConductorService;
+using Schaffner_Server.TransportationTimeTableService;
 using System;
 using System.Collections.Generic;
 
@@ -10,28 +11,11 @@ namespace Schaffner_Server.Controllers
     [Route("api/Stops")]
     public class StopsController : Controller
     {
-        private IConductorService _conductorService;
+        private ITransportationTimeTableService _timeTableService;
 
-        public StopsController(IConductorService conductorService)
+        public StopsController(ITransportationTimeTableService timeTableService)
         {
-            _conductorService = conductorService;
-        }
-
-        // GET: api/Stops - Gets All Stops info with predictions filled in
-        [HttpGet]
-        [Route("")]
-        public IActionResult Get()
-        {
-            try
-            {
-                IEnumerable<IStop> stops = _conductorService.GetAllStopsPredictions();
-
-                return Ok(stops);
-            }
-            catch (Exception)
-            {
-                return BadRequest($"Server encountered an error returning all stops.");
-            }
+            _timeTableService = timeTableService;
         }
 
         // GET: api/Stop/[stopId] - Get Individual Stop by stopId with predictions filled in
@@ -41,7 +25,7 @@ namespace Schaffner_Server.Controllers
         {
             try
             {
-                IStop stop = _conductorService.GetStopPredictions(stopId);
+                IEnumerable<IArrivalPrediction> stop = _timeTableService.GetStopPredictions(stopId, 2, DateTime.Now);
                 return Ok(stop);
             }
             catch (InvalidOperationException ex)
@@ -61,13 +45,13 @@ namespace Schaffner_Server.Controllers
         {
             try
             {
-                IEnumerable<IStop> stops = _conductorService.GetAllStops(1);
+                IEnumerable<IStop> stops = _timeTableService.GetAllStopsInfo();
 
                 return Ok(stops);
             }
             catch (Exception)
             {
-                return BadRequest($"Server encountered an error returning all stops.");
+                return BadRequest($"Server encountered an error returning all stops info.");
             }
         }
 
@@ -78,7 +62,7 @@ namespace Schaffner_Server.Controllers
         {
             try
             {
-                IStop stop = _conductorService.GetStop(stopId);
+                IStop stop = _timeTableService.GetStopInfo(stopId);
                 return Ok(stop);
             }
             catch (InvalidOperationException ex)
@@ -87,7 +71,7 @@ namespace Schaffner_Server.Controllers
             }
             catch (Exception)
             {
-                return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
+                return BadRequest($"Server encountered an error returning stop info with Id:{stopId}");
             }
         }
     }
