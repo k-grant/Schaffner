@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Schaffner_Server.Common\Schaffner_Server.Common.csproj" />
     <ProjectReference Include="..\Schaffner_Server.ConductorService\Schaffner_Server.ConductorService.csproj" />
+    <ProjectReference Include="..\Schaffner_Server.TransportationTimeTableService\Schaffner_Server.TransportationTimeTableService.csproj" />
   </ItemGroup>
 
 </Project>

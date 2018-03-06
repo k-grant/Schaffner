@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Schaffner_Server.Common.Models;
 using Schaffner_Server.ConductorService;
+using Schaffner_Server.TransportationTimeTableService;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Schaffner_Server.Controllers
 {
@@ -10,38 +12,22 @@ namespace Schaffner_Server.Controllers
     [Route("api/Stops")]
     public class StopsController : Controller
     {
-        private IConductorService _conductorService;
+        private ITransportationTimeTableService _timeTableService;
 
-        public StopsController(IConductorService conductorService)
+        public StopsController(ITransportationTimeTableService timeTableService)
         {
-            _conductorService = conductorService;
+            _timeTableService = timeTableService;
         }
 
-        // GET: api/Stops - Gets All Stops
-        [HttpGet]
-        public IActionResult Get()
-        {
-            try
-            {
-                IEnumerable<IStop> stops = _conductorService.GetAllStops(1);
-
-                return Ok(stops);
-            }
-            catch (Exception)
-            {
-                return BadRequest($"Server encountered an error returning all stops.");
-            }
-        }
-
-        // GET: api/Stop/[stopId] - Get Individual Stop by stopId
+        // GET: api/Stop/[stopId] - Get Individual Stop by stopId with predictions filled in
         [HttpGet]
         [Route("{stopId:int}")]
         public IActionResult Get(int stopId)
         {
             try
             {
-                IStop stop = _conductorService.GetStop(stopId);
-                return Ok(stop);
+                IEnumerable<IArrivalPrediction> stop = _timeTableService.GetStopPredictions(stopId, 2, DateTime.Now);
+                return Ok(stop.Select(preds => new { preds.Route.Name, preds.Minutes }));
             }
             catch (InvalidOperationException ex)
             {
@@ -50,6 +36,43 @@ namespace Schaffner_Server.Controllers
             catch (Exception)
             {
                 return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
+            }
+        }
+
+        // GET: api/Stops - Gets All Stops info
+        [HttpGet]
+        [Route("info")]
+        public IActionResult GetInfo()
+        {
+            try
+            {
+                IEnumerable<IStop> stops = _timeTableService.GetAllStopsInfo();
+
+                return Ok(stops);
+            }
+            catch (Exception)
+            {
+                return BadRequest($"Server encountered an error returning all stops info.");
+            }
+        }
+
+        // GET: api/Stop/[stopId] - Get Individual Stop by stopId
+        [HttpGet]
+        [Route("info/{stopId:int}")]
+        public IActionResult GetInfo(int stopId)
+        {
+            try
+            {
+                IStop stop = _timeTableService.GetStopInfo(stopId);
+                return Ok(stop);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest($"{ex.Message}");
+            }
+            catch (Exception)
+            {
+                return BadRequest($"Server encountered an error returning stop info with Id:{stopId}");
             }
         }
     }

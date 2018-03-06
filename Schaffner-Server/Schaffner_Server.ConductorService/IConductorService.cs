@@ -5,7 +5,6 @@ namespace Schaffner_Server.ConductorService
 {
     public interface IConductorService
     {
-        IEnumerable<IStop> GetAllStops(int busPlanId);
-        IStop GetStop(int stopId);
+        IEnumerable<IArrivalPrediction> CheckForDelays(IStop stop, IEnumerable<IRoute> routes);
     }
 }
