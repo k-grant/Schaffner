@@ -1,8 +1,5 @@
 ﻿using NSubstitute;
 using Schaffner_Server.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Schaffner_Server.ConductorService.Tests

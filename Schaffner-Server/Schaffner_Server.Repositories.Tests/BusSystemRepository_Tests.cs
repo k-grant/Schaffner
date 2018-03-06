@@ -1,10 +1,8 @@
-﻿using AutoFixture;
-using NSubstitute;
+﻿using NSubstitute;
 using Schaffner_Server.Common.Interfaces;
 using Schaffner_Server.Common.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Schaffner_Server.Repositories.Tests
