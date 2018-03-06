@@ -10,7 +10,7 @@ namespace Schaffner_Server.ConductorService.Tests
     public class ConductorService_Tests
     {
         [Fact]
-        public void GetStopThrowsInvalidOperationExceptionWhenStopRequestedDoesNotExist()
+        public void ConductorService_HappyPath()
         {
             IBusSystemRepository repo = Substitute.For<IBusSystemRepository>();
 
