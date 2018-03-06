@@ -6,8 +6,13 @@ namespace Schaffner_Server.Repositories
 {
     public interface IBusSystemRepository
     {
-        IEnumerable<IStop> GetStops(int busPlanId);
+        IEnumerable<IStop> GetStops(int? busPlanId = null);
 
         IStop GetStop(int stopId);
+
+        IRoute GetRoute(int routeId);
+
+        IEnumerable<IRoute> GetRoutes(int? busPlanId = null);
+
     }
 }

@@ -28,6 +28,17 @@ namespace Schaffner_Server.Common.DataSources
             }
         }
 
-        public IEnumerable<IRoute> Routes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<IRoute> Routes
+        {
+            get
+            {
+                return new IRoute[]
+              {
+                    new Route(1,"RightOn15 Route",0),
+                    new Route(2, "2MinAfter Route",0),
+                    new Route(3, "4MinPast Route",0)
+              };
+            }
+        }
     }
 }

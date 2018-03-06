@@ -4,12 +4,10 @@ using System.Text;
 
 namespace Schaffner_Server.Common.Models
 {
-    public interface IRoute
+    public interface IArrivalPrediction
     {
-        int Id { get; }
+        IRoute Route { get; }
 
-        string Name { get; }
-
-        int Direction { get; set; }
+        int Minutes { get; }
     }
 }

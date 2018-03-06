@@ -5,7 +5,9 @@ namespace Schaffner_Server.ConductorService
 {
     public interface IConductorService
     {
-        IEnumerable<IStop> GetAllStops(int busPlanId);
+        IEnumerable<IStop> GetAllStops(int? busPlanId = null);
+        IEnumerable<IStop> GetAllStopsPredictions(int? busPlanId = null);
         IStop GetStop(int stopId);
+        IStop GetStopPredictions(int stopId);
     }
 }

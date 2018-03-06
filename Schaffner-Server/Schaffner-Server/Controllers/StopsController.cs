@@ -17,9 +17,47 @@ namespace Schaffner_Server.Controllers
             _conductorService = conductorService;
         }
 
-        // GET: api/Stops - Gets All Stops
+        // GET: api/Stops - Gets All Stops info with predictions filled in
         [HttpGet]
+        [Route("")]
         public IActionResult Get()
+        {
+            try
+            {
+                IEnumerable<IStop> stops = _conductorService.GetAllStopsPredictions();
+
+                return Ok(stops);
+            }
+            catch (Exception)
+            {
+                return BadRequest($"Server encountered an error returning all stops.");
+            }
+        }
+
+        // GET: api/Stop/[stopId] - Get Individual Stop by stopId with predictions filled in
+        [HttpGet]
+        [Route("{stopId:int}")]
+        public IActionResult Get(int stopId)
+        {
+            try
+            {
+                IStop stop = _conductorService.GetStopPredictions(stopId);
+                return Ok(stop);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest($"{ex.Message}");
+            }
+            catch (Exception)
+            {
+                return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
+            }
+        }
+
+        // GET: api/Stops - Gets All Stops info
+        [HttpGet]
+        [Route("info")]
+        public IActionResult GetInfo()
         {
             try
             {
@@ -35,8 +73,8 @@ namespace Schaffner_Server.Controllers
 
         // GET: api/Stop/[stopId] - Get Individual Stop by stopId
         [HttpGet]
-        [Route("{stopId:int}")]
-        public IActionResult Get(int stopId)
+        [Route("info/{stopId:int}")]
+        public IActionResult GetInfo(int stopId)
         {
             try
             {

@@ -9,5 +9,7 @@ namespace Schaffner_Server.Common.Models
         int Id { get; }
 
         string Name { get; }
+
+        IEnumerable<IArrivalPrediction> Predictions { get; set; }
     }
 }
