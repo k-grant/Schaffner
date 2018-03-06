@@ -29,7 +29,19 @@ namespace Schaffner_Server.Repositories
 
         public IStop GetStop(int stopId)
         {
-            return _stops.Single(stop => stop.Id == stopId);
+            try
+            {
+                IStop stop = _stops.SingleOrDefault(s => s.Id == stopId);
+
+                if (stop == null)
+                    throw new InvalidOperationException($"No stops found with id matching Id : {stopId}");
+
+                return stop;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public IEnumerable<IStop> GetStops(int busPlanId)

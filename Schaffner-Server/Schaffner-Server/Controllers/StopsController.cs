@@ -22,19 +22,38 @@ namespace Schaffner_Server.Controllers
 
         // GET: api/Stops - Gets All Stops
         [HttpGet]
-        public IEnumerable<IStop> Get()
+        public IActionResult Get()
         {
-            IEnumerable<IStop> stops = _conductorService.GetAllStops(1);
-            return stops;
+            try
+            {
+                IEnumerable<IStop> stops = _conductorService.GetAllStops(1);
+
+                return Ok(stops);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest($"Server encountered an error returning all stops.");
+            }
         }
 
         // GET: api/Stop/[stopId] - Get Individual Stop by stopId
         [HttpGet]
         [Route("{stopId:int}")]
-        public IStop Get(int stopId)
+        public IActionResult Get(int stopId)
         {
-            IStop stop = _conductorService.GetStop(stopId);
-            return stop;
+            try
+            {
+                IStop stop = _conductorService.GetStop(stopId);
+                return Ok(stop);
+            }
+            catch(InvalidOperationException ex)
+            {
+                return BadRequest($"{ex.Message}");
+            }
+            catch(Exception ex)
+            {
+                return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
+            }
         }            
     }
 }
