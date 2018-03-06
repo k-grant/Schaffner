@@ -4,6 +4,7 @@ using Schaffner_Server.ConductorService;
 using Schaffner_Server.TransportationTimeTableService;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Schaffner_Server.Controllers
 {
@@ -26,7 +27,7 @@ namespace Schaffner_Server.Controllers
             try
             {
                 IEnumerable<IArrivalPrediction> stop = _timeTableService.GetStopPredictions(stopId, 2, DateTime.Now);
-                return Ok(stop);
+                return Ok(stop.Select(preds => new { preds.Route.Name, preds.Minutes }));
             }
             catch (InvalidOperationException ex)
             {
