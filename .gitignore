@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /Schaffner-Server/Schaffner-Server.v3.ncrunchsolution
 /Schaffner-Server/Schaffner-Server/Properties/PublishProfiles/FolderProfile.pubxml
+/Schaffner-Client/Schaffner-Client/Properties/PublishProfiles/FolderProfile.pubxml
