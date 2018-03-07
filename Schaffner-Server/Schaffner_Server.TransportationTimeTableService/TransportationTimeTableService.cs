@@ -61,12 +61,13 @@ namespace Schaffner_Server.TransportationTimeTableService
             IStop stop = this.GetStopInfo(stopId);
             IEnumerable<IRoute> routes = _busSystemRepo.GetRoutes();
 
-            List<IArrivalPrediction> predictions = new List<IArrivalPrediction>();
+            var predictions = new List<IArrivalPrediction>();
 
             foreach (IRoute route in routes)
             {
-                List<IArrivalPrediction> predictionsForRoute = new List<IArrivalPrediction>();
-                foreach(int arrivalTime in _timeTable[stopId - 1, route.Id - 1])
+                var etas = new List<int>();
+
+                foreach (int arrivalTime in _timeTable[stopId - 1, route.Id - 1])
                 {
                     int timeOffset = arrivalTime;
                     if(timeOffset <= requestTime.Minute)
@@ -74,13 +75,15 @@ namespace Schaffner_Server.TransportationTimeTableService
                         timeOffset += 60;
                     }
 
-                    predictionsForRoute.Add(new ArrivalPrediction(route, timeOffset - requestTime.Minute));
+                    etas.Add(timeOffset-requestTime.Minute);
                 }
 
-                predictions.AddRange(predictionsForRoute.OrderBy(s => s.Minutes).Take(predictionsPerRoute));
+                var currRoutPred = new ArrivalPrediction(route, etas.OrderBy(s=>s).Take(predictionsPerRoute));
+
+                predictions.Add(currRoutPred);
             }
 
-            return predictions.OrderBy(s => s.Minutes);
+            return predictions;
         }
     }
 }

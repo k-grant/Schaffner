@@ -8,6 +8,6 @@ namespace Schaffner_Server.Common.Models
     {
         IRoute Route { get; }
 
-        int Minutes { get; }
+        IEnumerable<int> Minutes { get; }
     }
 }

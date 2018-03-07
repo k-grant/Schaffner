@@ -1,5 +1,19 @@
-﻿<body data-ng-app="schaffner">
+﻿<base href="/"/>
+<body data-ng-app="schaffner">
     <div ng-controller="begin as vm">
-        {{vm.title}}
+        <div>
+            <h3> Stop 1</h3>
+            <div data-ng-repeat ="pred in vm.stop1info">
+                <span>Route: {{pred.route.id}}</span>
+                <span> in <span data-ng-repeat-start="minute in pred.minutes"> {{minute}}</span><span data-ng-repeat-end ng-if="!$last"> and</span> minutes.</span>
+            </div>
+        </div>
+        <div>
+            <h3> Stop 2</h3>
+            <div data-ng-repeat="pred in vm.stop2info">
+                <span>Route: {{pred.route.id}}</span>
+                <span> in <span data-ng-repeat-start="minute in pred.minutes"> {{minute}}</span><span data-ng-repeat-end ng-if="!$last"> and</span> minutes.</span>
+            </div>
+        </div>
     </div>
 </body>

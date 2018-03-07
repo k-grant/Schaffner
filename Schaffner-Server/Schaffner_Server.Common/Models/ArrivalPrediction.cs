@@ -7,9 +7,9 @@ namespace Schaffner_Server.Common.Models
     public class ArrivalPrediction : IArrivalPrediction
     {
         private IRoute _route;
-        private int _minutes;
+        private IEnumerable<int> _minutes;
 
-        public ArrivalPrediction(IRoute route, int minutes)
+        public ArrivalPrediction(IRoute route, IEnumerable<int> minutes)
         {
             _route = route;
             _minutes = minutes;
@@ -23,7 +23,7 @@ namespace Schaffner_Server.Common.Models
             }
         }
 
-        public int Minutes
+        public IEnumerable<int> Minutes
         {
             get
             {
