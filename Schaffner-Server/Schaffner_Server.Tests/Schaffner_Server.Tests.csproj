@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Schaffner-Server\Schaffner_Server.csproj" />
     <ProjectReference Include="..\Schaffner_Server.ConductorService\Schaffner_Server.ConductorService.csproj" />
+    <ProjectReference Include="..\Schaffner_Server.TransportationTimeTableService\Schaffner_Server.TransportationTimeTableService.csproj" />
   </ItemGroup>
 
 </Project>
