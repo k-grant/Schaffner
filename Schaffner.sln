@@ -11,15 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.ConductorS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Repositories", "Schaffner-Server\Schaffner_Server.Repositories\Schaffner_Server.Repositories.csproj", "{72C0E7D9-78AE-4AD8-A334-319407A6B26B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner-Client", "Schaffner-Client\Schaffner-Client\Schaffner-Client.csproj", "{5CA24256-7281-46B8-B4AD-6810EA973D35}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{72A22EDB-C812-49F9-AC39-EC6119695998}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Tests", "Schaffner-Server\Schaffner_Server.Tests\Schaffner_Server.Tests.csproj", "{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.ConductorService.Tests", "Schaffner-Server\Schaffner_Server.ConductorService.Tests\Schaffner_Server.ConductorService.Tests.csproj", "{F3B09570-527D-4F96-8FB3-2200654A69C0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Repositories.Tests", "Schaffner-Server\Schaffner_Server.Repositories.Tests\Schaffner_Server.Repositories.Tests.csproj", "{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.TransportationTimeTableService", "Schaffner-Server\Schaffner_Server.TransportationTimeTableService\Schaffner_Server.TransportationTimeTableService.csproj", "{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.TransportationTimeTableService.Tests", "Schaffner-Server\Schaffner_Server.TransportationTimeTableService.Tests\Schaffner_Server.TransportationTimeTableService.Tests.csproj", "{12AB618A-D795-49B3-AF58-3D115012E958}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner-Client", "Schaffner-Client\Schaffner-Client\Schaffner-Client.csproj", "{5CA24256-7281-46B8-B4AD-6810EA973D35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,32 +45,36 @@ Global
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72C0E7D9-78AE-4AD8-A334-319407A6B26B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Release|Any CPU.Build.0 = Release|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA24256-7281-46B8-B4AD-6810EA973D35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
-		{F3B09570-527D-4F96-8FB3-2200654A69C0} = {72A22EDB-C812-49F9-AC39-EC6119695998}
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
+		{12AB618A-D795-49B3-AF58-3D115012E958} = {72A22EDB-C812-49F9-AC39-EC6119695998}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B9E759E1-D874-4D06-8059-5800B8555447}
+		SolutionGuid = {A892377F-8810-41D8-8C50-738786D73D85}
 	EndGlobalSection
 EndGlobal
