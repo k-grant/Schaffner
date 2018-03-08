@@ -47,8 +47,7 @@ namespace Schaffner_Server
 
             //TODO -change this
             app.UseCors("MyPolicy");
-
-            
+           
             app.UseMvc();
         }
     }

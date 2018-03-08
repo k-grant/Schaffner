@@ -23,9 +23,9 @@ namespace Schaffner_Server.TransportationTimeTableService
             InitTimeTable();         
         }
 
+        //hydrates an in memory time table 2D array for each route. a more elegant solution exists somewhere.
         private void InitTimeTable()
         {
-
             IEnumerable<IRoute> routes = _busSystemRepo.GetRoutes().OrderBy(r => r.Id);
             IEnumerable<IStop> stops = _busSystemRepo.GetStops().OrderBy(s => s.Id);
 
@@ -36,6 +36,10 @@ namespace Schaffner_Server.TransportationTimeTableService
                 for(int j = 0; j < routes.Count(); j++)
                 {
                     var route = routes.ElementAt(j);
+
+                    // the ith route arrives every 15 min offest by -> (2 * its route order)(each route starts 2 min after previous) 
+                    // and also it arrives at each stop every 15 min offset by (2 * the stop number)(each route is 2 min away)
+                    // with more time I might have made this a more robust check using databases and statemachines.
                     int routeAndStopOffset = (j * 2) + (i * 2);
                     _timeTable[stop.Id-1, route.Id-1] = new List<int>() { 0  + routeAndStopOffset,
                                                                           15 + routeAndStopOffset,
@@ -65,34 +69,7 @@ namespace Schaffner_Server.TransportationTimeTableService
 
             return predictions;
         }
-
-        private IEnumerable<IArrivalPrediction> ReturnPredictionsForStopAndRoutes(IStop stop, IEnumerable<IRoute> routes, DateTime requestTime, int predictionsPerRoute)
-        {
-            var predictions = new List<IArrivalPrediction>();
-            
-            foreach (IRoute route in routes)
-            {
-                var etas = new List<int>();
-
-                foreach (int arrivalTime in _timeTable[stop.Id - 1, route.Id - 1])
-                {
-                    int timeOffset = arrivalTime;
-                    if (timeOffset <= requestTime.Minute)
-                    {
-                        timeOffset += 60;
-                    }
-
-                    etas.Add(timeOffset - requestTime.Minute);
-                }
-
-                var currRoutPred = new ArrivalPrediction(route, etas.OrderBy(s => s).Take(predictionsPerRoute));
-
-                predictions.Add(currRoutPred);
-            }
-
-            return predictions;
-        }
-
+        
         public IEnumerable<IStopPrediction> GetAllStopPredictions(int predictionsPerRoute, DateTime requestTime)
         {
             IEnumerable<IStop> stops = this.GetAllStopsInfo();
@@ -106,6 +83,36 @@ namespace Schaffner_Server.TransportationTimeTableService
             }
 
             return stopPredictions;
+        }
+
+        private IEnumerable<IArrivalPrediction> ReturnPredictionsForStopAndRoutes(IStop stop, IEnumerable<IRoute> routes, DateTime requestTime, int predictionsPerRoute)
+        {
+            var predictions = new List<IArrivalPrediction>();
+
+            foreach (IRoute route in routes)
+            {
+                var etas = new List<int>();
+
+                foreach (int arrivalTime in _timeTable[stop.Id - 1, route.Id - 1])
+                {
+                    int timeOffset = arrivalTime;
+
+                    //if the expected time is less than the the current, it could still be the next, if we are at the changing of an hour.
+                    if (timeOffset <= requestTime.Minute)
+                    {
+                        timeOffset += 60;
+                    }
+
+                    etas.Add(timeOffset - requestTime.Minute);
+                }
+
+                //Order and take the first 2 per specifications
+                var currRoutPred = new ArrivalPrediction(route, etas.OrderBy(s => s).Take(predictionsPerRoute));
+
+                predictions.Add(currRoutPred);
+            }
+
+            return predictions;
         }
     }
 }
