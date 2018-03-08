@@ -9,6 +9,8 @@
                 var vm = this;
                 
             },
-            templateUrl: "app/map/map.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/map/map.component.html";
+            }
         });
 })();

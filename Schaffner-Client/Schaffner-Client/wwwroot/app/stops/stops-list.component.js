@@ -43,6 +43,8 @@
                         });
                 }
             },
-            templateUrl: "app/stops/stops-list.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/stops/stops-list.component.html";
+            }
         });
 })();

@@ -5,21 +5,20 @@
         .module('schaffner')
         .factory('stopsDataService', stopsDataService);
 
-    stopsDataService.$inject = ['$resource','$location'];
+    stopsDataService.$inject = ['$resource','SchaffnerRestAPIBaseURL'];
 
-    function stopsDataService($resource, $location) {
-        var port = ':' + $location.port();
-        var baseURL = location.origin + '/Schaffner/api/stops/:stopId';
-        var baseURL2 = location.origin + '/Schaffner/api/stops/';
-        var stopAPI = $resource(baseURL.replace(port, ''), { stopId: '@id' });
+    function stopsDataService($resource, SchaffnerRestAPIBaseURL) {
+
+        var baseURL = SchaffnerRestAPIBaseURL;
+        var baseURL2 = baseURL + ':stopId';
 
         function getStopPredictions(stopId) {
-            var stopAPI = $resource(baseURL.replace(port, ''), { stopId: '@id' });
+            var stopAPI = $resource(baseURL2, { stopId: '@id' });
            return stopAPI.query({ stopId: stopId }).$promise;
         }
 
         function getAllStopPredictions() {
-            var stopAPI = $resource(baseURL2.replace(port, ''));
+            var stopAPI = $resource(baseURL);
             return stopAPI.query().$promise;
         }
 
