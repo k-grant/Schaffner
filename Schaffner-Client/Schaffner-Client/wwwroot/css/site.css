@@ -1,4 +1,45 @@
-﻿.component-borders {
+﻿.timeline-container ol li a::before 
+{
+    z-index:4 !important;
+}
+
+.timeline-container ol li a.selected::before {
+    height: 25px !important;
+    width: 25px !important;
+}
+
+@media all and (max-width: 960px) {
+    h1 {
+        font-size: 30px !important;
+    }
+}
+
+@media all and (max-width: 560px) {
+    h1 {
+        font-size: 20px !important;
+    }
+}
+
+
+
+.timeline-container {
+    margin-right: 17px !important;
+}
+
+.filling-line {
+    z-index: 0 !important;
+}
+.timeline-container ol li a::before {
+    top: 100% !important;
+    width: 17px !important;
+    height: 17px !important;
+}
+
+.timeline-container .line-container {
+    position:relative !important;
+}
+
+.component-borders {
     border-style: solid;
     border-width: 1px;
     border-color: darkgrey;
@@ -6,6 +47,7 @@
     padding: 10px;
     margin: 10px;
 }
+
 
 *,
 *::before,
@@ -20,3 +62,28 @@ body {
     background: #456990;
     color: #fff;
 }
+
+body {
+    padding-top: 20px;
+}
+
+.defaultBackGroundColor {
+    background-color: ghostwhite !important;
+    opacity: 0.9;
+}
+
+.route1BackGroundColor {
+    background-color: linen !important;
+    opacity: 0.9;
+}
+
+.route2BackGroundColor {
+    background-color: aliceblue !important;
+    opacity: 0.9;
+}
+
+.route3BackGroundColor {
+    background-color: mistyrose !important;
+    opacity: 0.9;
+}
+
