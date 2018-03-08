@@ -1,4 +1,4 @@
-﻿<div data-ng-repeat="stopInfo in vm.stopInfos">
+﻿<div data-ng-repeat="stopInfo in vm.stopInfos | limitTo:2">
     <stop-header stop-info="stopInfo" ng-click="vm.hideInfo(stopInfo)"></stop-header>
     <stop-info stop-info="stopInfo" ng-hide="stopInfo.hide"></stop-info>
 </div>

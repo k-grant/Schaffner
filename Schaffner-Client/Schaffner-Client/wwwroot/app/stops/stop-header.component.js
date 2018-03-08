@@ -26,7 +26,7 @@
 
                 vm.$onInit = function () {
                     var min = 2147483647;
-                    vm.stopInfo.forEach(function (prediction) {
+                    vm.stopInfo.predictions.forEach(function (prediction) {
                         var currMin = Math.min.apply(null, prediction.minutes);
                         if (currMin < min) min = currMin;
                     });

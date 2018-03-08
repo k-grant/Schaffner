@@ -10,14 +10,22 @@
     function stopsDataService($resource, $location) {
         var port = ':' + $location.port();
         var baseURL = location.origin + '/Schaffner/api/stops/:stopId';
-        var stopAPI = $resource(baseURL.replace(port,''), { stopId: '@id' });
+        var baseURL2 = location.origin + '/Schaffner/api/stops/';
+        var stopAPI = $resource(baseURL.replace(port, ''), { stopId: '@id' });
 
-        function getStopPredition(stopId) {
+        function getStopPredictions(stopId) {
+            var stopAPI = $resource(baseURL.replace(port, ''), { stopId: '@id' });
            return stopAPI.query({ stopId: stopId }).$promise;
         }
 
+        function getAllStopPredictions() {
+            var stopAPI = $resource(baseURL2.replace(port, ''));
+            return stopAPI.query().$promise;
+        }
+
         return {
-            getStopPredition: getStopPredition
+            getStopPredictions: getStopPredictions,
+            getAllStopPredictions: getAllStopPredictions
         };
     }
 })();
