@@ -1,0 +1,6 @@
+﻿<div data-ng-repeat="stopInfo in vm.stopInfos | limitTo:2" style="padding-top:5px">
+    <stop-header stop-info="stopInfo" ng-click="vm.hideInfo(stopInfo)"></stop-header>
+    <small class="text-muted" ng-hide="!vm.hideInfos[stopInfo.stop.id-1]">+-expand-route-details</small>
+    <small class="text-muted" ng-hide="vm.hideInfos[stopInfo.stop.id-1]">--collapse-route-details</small>
+    <stop-info stop-info="stopInfo" ng-hide="vm.hideInfos[stopInfo.stop.id-1]"></stop-info>
+</div>

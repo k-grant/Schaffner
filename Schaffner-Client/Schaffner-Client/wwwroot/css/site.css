@@ -1,35 +1,87 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.timeline-container ol li a::before 
+{
+    z-index:4 !important;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.timeline-container ol li a.selected::before {
+    height: 25px !important;
+    width: 25px !important;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+@media all and (max-width: 960px) {
+    h1 {
+        font-size: 30px !important;
     }
 }
+
+@media all and (max-width: 560px) {
+    h1 {
+        font-size: 20px !important;
+    }
+}
+
+.timeline-container {
+    margin-right: 17px !important;
+}
+
+.filling-line {
+    z-index: 0 !important;
+}
+.timeline-container ol li a::before {
+    top: 100% !important;
+    width: 17px !important;
+    height: 17px !important;
+}
+
+.timeline-container .line-container {
+    position:relative !important;
+}
+
+.component-borders {
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgrey;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+    background: #456990;
+    color: #fff;
+}
+
+body {
+    padding-top: 20px;
+}
+
+.defaultBackGroundColor {
+    background-color: ghostwhite !important;
+    opacity: 0.9;
+}
+
+.route1BackGroundColor {
+    background-color: linen !important;
+    opacity: 0.9;
+}
+
+.route2BackGroundColor {
+    background-color: aliceblue !important;
+    opacity: 0.9;
+}
+
+.route3BackGroundColor {
+    background-color: mistyrose !important;
+    opacity: 0.9;
+}
+
