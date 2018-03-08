@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +22,14 @@ namespace Schaffner_Server
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {              
             services.AddMvc();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             services.AddSingleton<IBusSystemRepository, BusSystemRepository>();
             services.AddSingleton<IConductorService, ConductorService.ConductorService>();
@@ -39,6 +46,10 @@ namespace Schaffner_Server
                 app.UseDeveloperExceptionPage();
             }
 
+            //TODO -change this
+            app.UseCors("MyPolicy");
+
+            
             app.UseMvc();
         }
     }

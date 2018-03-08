@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Schaffner_Server.Common.Models;
 using Schaffner_Server.ConductorService;
 using Schaffner_Server.TransportationTimeTableService;
@@ -10,6 +11,7 @@ namespace Schaffner_Server.Controllers
 {
     [Produces("application/json")]
     [Route("api/Stops")]
+    [EnableCors("MyPolicy")]
     public class StopsController : Controller
     {
         private ITransportationTimeTableService _timeTableService;
@@ -26,8 +28,8 @@ namespace Schaffner_Server.Controllers
         {
             try
             {
-                IEnumerable<IArrivalPrediction> stop = _timeTableService.GetStopPredictions(stopId, 2, DateTime.Now);
-                return Ok(stop.Select(preds => new { preds.Route.Name, preds.Minutes }));
+                IEnumerable<IArrivalPrediction> predictions = _timeTableService.GetStopPredictions(stopId, 2, DateTime.Now);
+                return Ok(predictions);
             }
             catch (InvalidOperationException ex)
             {
