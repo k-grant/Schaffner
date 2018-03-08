@@ -12,9 +12,22 @@
 
                 vm.$onInit = function () {
 
-                    vm.busNumber = vm.stopInfo[0].route.id.toString(6);
-
+                    vm.routeId = vm.stopInfo[0].route.id;               
                 };
+
+                vm.getBackGroundColor = function (prediction) {
+                    if (prediction.route.id == 1)
+                        return'route1BackGroundColor';
+                    else
+                    if (prediction.route.id == 2)
+                        return 'route2BackGroundColor';
+                    else
+                    if (prediction.route.id == 3)
+                        return 'route3BackGroundColor';
+                    else return'defaultBackGroundColor';
+                }
+
+                
 
             },
             templateUrl: "app/stops/stop-info.component.html"

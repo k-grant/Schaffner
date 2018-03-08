@@ -67,3 +67,23 @@ body {
     padding-top: 20px;
 }
 
+.defaultBackGroundColor {
+    background-color: ghostwhite !important;
+    opacity: 0.9;
+}
+
+.route1BackGroundColor {
+    background-color: linen !important;
+    opacity: 0.9;
+}
+
+.route2BackGroundColor {
+    background-color: aliceblue !important;
+    opacity: 0.9;
+}
+
+.route3BackGroundColor {
+    background-color: mistyrose !important;
+    opacity: 0.9;
+}
+

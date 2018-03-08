@@ -58,11 +58,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var appModule = _angular2.default.module("ng-horizontal-timeline", []);
 
 function controller($element, $log, $timeout, $scope) {
-    $log.debug("ng-horizontal-timeline component created.");
     var vm = this;
 
     vm.$onInit = function () {
-        $log.debug("ng-horizontal-timeline component initialized.");
 
         _angular2.default.forEach(vm.events, function (ev) {
             var defaultObj = {
@@ -79,7 +77,6 @@ function controller($element, $log, $timeout, $scope) {
     };
 
     vm.$postLink = function () {
-        $log.debug("$postLink: ", (0, _jquery2.default)($element), vm.events);
 
         $timeout(function () {
             // initialize timeline
