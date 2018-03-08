@@ -9,6 +9,7 @@
                 var vm = this;               
 
                 vm.stopInfos = [];
+                vm.hideInfos = [];
 
                 vm.$onInit = function () {
 
@@ -22,12 +23,20 @@
                 }
 
                 vm.hideInfo = function (stopInfo) {
-                    stopInfo.hide = !stopInfo.hide;
+                    var valueNow = vm.hideInfos[stopInfo.stop.id - 1];
+                    vm.hideInfos[stopInfo.stop.id - 1] = !valueNow;
                 }
 
                 function activate() {
                     stopsDataService.getAllStopPredictions().then(function (response) {
                         vm.stopInfos = response;
+
+                        if (vm.hideInfos.length == 0) {
+                            vm.hideInfos = new Array(vm.stopInfos.length);
+                            for (var i = 0; i < vm.hideInfos.length; i++) {
+                                vm.hideInfos[i] = true;
+                            }
+                        }
                     },
                         (err) => {
                             console.log("rejected with", err);
