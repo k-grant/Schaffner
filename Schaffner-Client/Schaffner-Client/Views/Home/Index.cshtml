@@ -1,19 +1,23 @@
 ﻿<base href="/"/>
-<body data-ng-app="schaffner">
-    <div ng-controller="begin as vm">
-        <div>
-            <h3> Stop 1</h3>
-            <div data-ng-repeat ="pred in vm.stop1info">
-                <span>Route: {{pred.route.id}}</span>
-                <span> in <span data-ng-repeat-start="minute in pred.minutes"> {{minute}}</span><span data-ng-repeat-end ng-if="!$last"> and</span> minutes.</span>
-            </div>
-        </div>
-        <div>
-            <h3> Stop 2</h3>
-            <div data-ng-repeat="pred in vm.stop2info">
-                <span>Route: {{pred.route.id}}</span>
-                <span> in <span data-ng-repeat-start="minute in pred.minutes"> {{minute}}</span><span data-ng-repeat-end ng-if="!$last"> and</span> minutes.</span>
-            </div>
+<body data-ng-app="schaffner" style="margin:auto;max-width:1000px;padding-left:20px;padding-right:20px">
+    <div class="row">
+        <div class="col-md-12" style="padding:5px">
+            <no-fuss-bus></no-fuss-bus>
         </div>
     </div>
+
+    <ul class="list-group">
+        <li class="list-group-item justify-content-between">
+            Cras justo odio
+            <span class="badge badge-default badge-pill">14</span>
+        </li>
+        <li class="list-group-item justify-content-between">
+            Dapibus ac facilisis in
+            <span class="badge badge-default badge-pill">2</span>
+        </li>
+        <li class="list-group-item justify-content-between">
+            Morbi leo risus
+            <span class="badge badge-default badge-pill">1</span>
+        </li>
+    </ul>
 </body>

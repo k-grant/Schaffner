@@ -10,9 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\app\app.ts" />
-    <Content Remove="wwwroot\app\service.js" />
-    <Content Remove="wwwroot\app\stops\stops-data-service.ts" />
+    <Compile Remove="wwwroot\lib\bootstrap\**" />
+    <Compile Remove="wwwroot\typings\**" />
+    <Content Remove="wwwroot\lib\bootstrap\**" />
+    <Content Remove="wwwroot\typings\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap\**" />
+    <EmbeddedResource Remove="wwwroot\typings\**" />
+    <None Remove="wwwroot\lib\bootstrap\**" />
+    <None Remove="wwwroot\typings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="tsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,12 +34,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\lib\bootstrap\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="wwwroot\app\app.ts" />
-    <TypeScriptCompile Include="wwwroot\app\stops\stops-data-service.ts" />
+    <Content Update="wwwroot\app\service-outages\service-outages.component.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\app\service-outages\service-outages.component.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
