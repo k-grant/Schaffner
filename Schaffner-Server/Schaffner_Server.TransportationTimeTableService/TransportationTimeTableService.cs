@@ -23,9 +23,9 @@ namespace Schaffner_Server.TransportationTimeTableService
             InitTimeTable();         
         }
 
+        //hydrates an in memory time table 2D array for each route.
         private void InitTimeTable()
         {
-
             IEnumerable<IRoute> routes = _busSystemRepo.GetRoutes().OrderBy(r => r.Id);
             IEnumerable<IStop> stops = _busSystemRepo.GetStops().OrderBy(s => s.Id);
 
@@ -65,11 +65,26 @@ namespace Schaffner_Server.TransportationTimeTableService
 
             return predictions;
         }
+        
+        public IEnumerable<IStopPrediction> GetAllStopPredictions(int predictionsPerRoute, DateTime requestTime)
+        {
+            IEnumerable<IStop> stops = this.GetAllStopsInfo();
+            IEnumerable<IRoute> routes = this._busSystemRepo.GetRoutes();
+            IList<IStopPrediction> stopPredictions = new List<IStopPrediction>();
+
+            foreach (var stop in stops)
+            {
+                IEnumerable<IArrivalPrediction> arrivalPredictions = ReturnPredictionsForStopAndRoutes(stop, routes, requestTime, predictionsPerRoute);
+                stopPredictions.Add(new StopPrediction(stop, arrivalPredictions));
+            }
+
+            return stopPredictions;
+        }
 
         private IEnumerable<IArrivalPrediction> ReturnPredictionsForStopAndRoutes(IStop stop, IEnumerable<IRoute> routes, DateTime requestTime, int predictionsPerRoute)
         {
             var predictions = new List<IArrivalPrediction>();
-            
+
             foreach (IRoute route in routes)
             {
                 var etas = new List<int>();
@@ -91,21 +106,6 @@ namespace Schaffner_Server.TransportationTimeTableService
             }
 
             return predictions;
-        }
-
-        public IEnumerable<IStopPrediction> GetAllStopPredictions(int predictionsPerRoute, DateTime requestTime)
-        {
-            IEnumerable<IStop> stops = this.GetAllStopsInfo();
-            IEnumerable<IRoute> routes = this._busSystemRepo.GetRoutes();
-            IList<IStopPrediction> stopPredictions = new List<IStopPrediction>();
-
-            foreach (var stop in stops)
-            {
-                IEnumerable<IArrivalPrediction> arrivalPredictions = ReturnPredictionsForStopAndRoutes(stop, routes, requestTime, predictionsPerRoute);
-                stopPredictions.Add(new StopPrediction(stop, arrivalPredictions));
-            }
-
-            return stopPredictions;
         }
     }
 }
