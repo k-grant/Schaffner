@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProject
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Tests", "Schaffner_Server.Tests\Schaffner_Server.Tests.csproj", "{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.ConductorService.Tests", "Schaffner_Server.ConductorService.Tests\Schaffner_Server.ConductorService.Tests.csproj", "{F3B09570-527D-4F96-8FB3-2200654A69C0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.Repositories.Tests", "Schaffner_Server.Repositories.Tests\Schaffner_Server.Repositories.Tests.csproj", "{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.TransportationTimeTableService", "Schaffner_Server.TransportationTimeTableService\Schaffner_Server.TransportationTimeTableService.csproj", "{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schaffner_Server.TransportationTimeTableService", "Schaffner_Server.TransportationTimeTableService\Schaffner_Server.TransportationTimeTableService.csproj", "{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schaffner_Server.TransportationTimeTableService.Tests", "Schaffner_Server.TransportationTimeTableService.Tests\Schaffner_Server.TransportationTimeTableService.Tests.csproj", "{12AB618A-D795-49B3-AF58-3D115012E958}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,6 @@ Global
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3B09570-527D-4F96-8FB3-2200654A69C0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,14 +55,18 @@ Global
 		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E2FCDD9-AF49-4DAC-B48B-9B9E114B1C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AB618A-D795-49B3-AF58-3D115012E958}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{035A0D17-85BB-4F80-9CBF-CFBC46FDC1D5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
-		{F3B09570-527D-4F96-8FB3-2200654A69C0} = {72A22EDB-C812-49F9-AC39-EC6119695998}
 		{7F03075F-C239-4ABE-9CD6-78784ED2E2A5} = {72A22EDB-C812-49F9-AC39-EC6119695998}
+		{12AB618A-D795-49B3-AF58-3D115012E958} = {72A22EDB-C812-49F9-AC39-EC6119695998}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9E759E1-D874-4D06-8059-5800B8555447}
