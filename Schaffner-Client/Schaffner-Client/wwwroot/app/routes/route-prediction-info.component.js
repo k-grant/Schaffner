@@ -12,6 +12,8 @@
                 var vm = this;
                 
             },
-            templateUrl: "app/routes/route-prediction-info.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/routes/route-prediction-info.component.html";
+            }
         });
 })();

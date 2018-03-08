@@ -9,6 +9,8 @@
                 var vm = this;
                 
             },
-            templateUrl: "app/routes/routes.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/routes/routes.component.html";
+            }
         });
 })();

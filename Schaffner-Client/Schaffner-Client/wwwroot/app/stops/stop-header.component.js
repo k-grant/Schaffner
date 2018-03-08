@@ -33,6 +33,8 @@
                     vm.nextStopTime = min;
                 }
             },
-            templateUrl: "app/stops/stop-header.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/stops/stop-header.component.html";
+            }
         });
 })();

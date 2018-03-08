@@ -22,12 +22,12 @@
                     else
                     if (prediction.route.id == 3)
                         return 'route3BackGroundColor';
-                    else return'defaultBackGroundColor';
+                    else
+                        return 'defaultBackGroundColor';
                 }
-
-                
-
             },
-            templateUrl: "app/stops/stop-info.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/stops/stop-info.component.html";
+            }
         });
 })();

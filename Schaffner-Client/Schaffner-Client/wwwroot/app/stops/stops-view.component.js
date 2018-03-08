@@ -9,6 +9,8 @@
                 var vm = this;
                 
             },
-            templateUrl: "app/stops/stops-view.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/stops/stops-view.component.html";
+            }
         });
 })();

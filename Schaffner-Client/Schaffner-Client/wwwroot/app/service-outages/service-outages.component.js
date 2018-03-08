@@ -9,6 +9,8 @@
                 var vm = this;
                 
             },
-            templateUrl: "app/service-outages/service-outages.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/service-outages/service-outages.component.html";
+            }
         });
 })();

@@ -9,6 +9,8 @@
                 var vm = this;
                
             },
-            templateUrl: "app/no-fuss-bus.component.html"
+            templateUrl: function (IISProjectFolderRoot) {
+                return IISProjectFolderRoot + "app/no-fuss-bus.component.html";
+            }
         });
 })();
