@@ -27,6 +27,12 @@ Just make sure it is consistent.
 
 
 
+Tips/Tricks
+-Change the limitTo on the ng-repeat directive in stops-list.component to show up to 10 stops at once.
+
+
+
+
 
 
 
