@@ -34,7 +34,6 @@ namespace Schaffner_Server
             services.AddSingleton<IBusSystemRepository, BusSystemRepository>();
             services.AddSingleton<IConductorService, ConductorService.ConductorService>();
             services.AddSingleton<ITransportationTimeTableService, TransportationTimeTableService.TransportationTimeTableService>();
-            IBusSystemDataSource d = new SampleDataSource_A();
             services.AddTransient<IBusSystemDataSource, SampleDataSource_A>();
         }
 

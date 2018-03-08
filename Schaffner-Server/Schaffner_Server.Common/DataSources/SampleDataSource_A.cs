@@ -8,18 +8,18 @@ namespace Schaffner_Server.Common.DataSources
 {
     public class SampleDataSource_A : IBusSystemDataSource
     {
-        private readonly string[] stops = new string[] { "South Bound L - Lexington",
-                                                                "South Bound L - Balamb",
-                                                                "South Bound L - Xanarcand",
-                                                                "South Bound L - Esther",
-                                                                "South Bound L - Pomona",
-                                                                "North Bound L - Pomona",
-                                                                "North Bound L - Esther",
-                                                                "North Bound L - Xanarcand" ,
-                                                                "North Bound L - Balamb" ,
-                                                                "North Bound L - Lexington" };
+        private readonly string[] stops = new string[] { "Lexington",
+                                                                "Balamb",
+                                                                "Xanarcand",
+                                                                "Esther",
+                                                                "Pomona",
+                                                                "Hyrule",
+                                                                "Esther",
+                                                                "45th St." ,
+                                                                "97th St." ,
+                                                                "Downtown" };
 
-        private readonly string[] routes = new string[] { "RightOn15 Route", "2MinAfter Route", "4MinPast Route", "6MinPast Route" }; 
+        private readonly string[] routes = new string[] { "Express Route Davis", "Hilltop", "Queens Express"}; 
 
         public IEnumerable<IStop> Stops
         {

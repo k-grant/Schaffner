@@ -11,7 +11,6 @@ namespace Schaffner_Server.Controllers
 {
     [Produces("application/json")]
     [Route("api/Stops")]
-    [EnableCors("MyPolicy")]
     public class StopsController : Controller
     {
         private ITransportationTimeTableService _timeTableService;
@@ -21,7 +20,7 @@ namespace Schaffner_Server.Controllers
             _timeTableService = timeTableService;
         }
 
-        // GET: api/Stop/[stopId] - Get Individual Stop by stopId with predictions filled in
+        // GET: api/Stop/[stopId] - Get Individual Stop by stopId
         [HttpGet]
         [Route("{stopId:int}")]
         public IActionResult Get(int stopId)
@@ -38,6 +37,26 @@ namespace Schaffner_Server.Controllers
             catch (Exception)
             {
                 return BadRequest($"Server encountered an error returning stop with Id:{stopId}");
+            }
+        }
+
+        // GET: api/Stop/ - Get all stop predictions
+        [HttpGet]
+        [Route("")]
+        public IActionResult GetAllStopPredictions()
+        {
+            try
+            {
+                IEnumerable<IStopPrediction> predictions = _timeTableService.GetAllStopPredictions(2, DateTime.Now);
+                return Ok(predictions);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest($"{ex.Message}");
+            }
+            catch (Exception)
+            {
+                return BadRequest("Server encountered an error returning all stop predictions");
             }
         }
 
