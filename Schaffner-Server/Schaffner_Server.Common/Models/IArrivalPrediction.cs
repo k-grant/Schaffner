@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Schaffner_Server.Common.Models
+{
+    public interface IArrivalPrediction
+    {
+        IRoute Route { get; }
+
+        IEnumerable<int> Minutes { get; }
+    }
+}

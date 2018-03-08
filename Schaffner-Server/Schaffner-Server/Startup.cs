@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Schaffner_Server.Common.DataSources;
+using Schaffner_Server.Common.Interfaces;
+using Schaffner_Server.ConductorService;
+using Schaffner_Server.Repositories;
+using Schaffner_Server.TransportationTimeTableService;
 
 namespace Schaffner_Server
 {
@@ -22,8 +22,20 @@ namespace Schaffner_Server
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {              
             services.AddMvc();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
+            services.AddSingleton<IBusSystemRepository, BusSystemRepository>();
+            services.AddSingleton<IConductorService, ConductorService.ConductorService>();
+            services.AddSingleton<ITransportationTimeTableService, TransportationTimeTableService.TransportationTimeTableService>();
+            IBusSystemDataSource d = new SampleDataSource_A();
+            services.AddTransient<IBusSystemDataSource, SampleDataSource_A>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +46,10 @@ namespace Schaffner_Server
                 app.UseDeveloperExceptionPage();
             }
 
+            //TODO -change this
+            app.UseCors("MyPolicy");
+
+            
             app.UseMvc();
         }
     }

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Schaffner_Server.Common\Schaffner_Server.Common.csproj" />
+    <ProjectReference Include="..\Schaffner_Server.ConductorService\Schaffner_Server.ConductorService.csproj" />
+    <ProjectReference Include="..\Schaffner_Server.Repositories\Schaffner_Server.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
