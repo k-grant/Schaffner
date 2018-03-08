@@ -10,5 +10,7 @@ namespace Schaffner_Server.TransportationTimeTableService
         IStop GetStopInfo(int stopId);
         IEnumerable<IStop> GetAllStopsInfo(int? busPlanId = null);
         IEnumerable<IArrivalPrediction> GetStopPredictions(int stopId, int predictionsPerRoute, DateTime requestTime);
+        IEnumerable<IStopPrediction> GetAllStopPredictions(int predictionsPerRoute, DateTime requestTime);
+
     }
 }
