@@ -11,8 +11,6 @@
                 var vm = this;
 
                 vm.$onInit = function () {
-
-                    vm.routeId = vm.stopInfo[0].route.id;               
                 };
 
                 vm.getBackGroundColor = function (prediction) {
