@@ -10,7 +10,7 @@
         .module("schaffner", ["ngResource", "ui.router","ng-horizontal-timeline"])
         .config(location);
 
-    appModule.constant("SchaffnerRestAPIBaseURL", "http://localhost/Schaffner/api/stops/");
+    appModule.constant("SchaffnerRestAPIBaseURL", "http://localhost/Schaffner/api/");
     appModule.constant("IISProjectFolderRoot", "/Schaffner-UI/");
 
     appModule.config(function ($stateProvider) {
