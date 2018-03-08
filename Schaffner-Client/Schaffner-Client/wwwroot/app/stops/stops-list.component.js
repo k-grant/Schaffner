@@ -8,8 +8,8 @@
 
                 var vm = this;               
 
-                vm.stop1info = {hide:true}
-                vm.stop2info = {hide:true}
+                vm.stop1info = {hide:false}
+                vm.stop2info = {hide:false}
 
                 vm.stopInfos = [vm.stop1info, vm.stop2info];
 
