@@ -1,3 +1,9 @@
-﻿<div data-ng-repeat="pred in vm.stopInfo">
-    <route-prediction-info prediction-info="pred"></route-prediction-info>
-</div>
+﻿<ul class="list-group" style="margin-left:20px;">
+    <div data-ng-repeat="pred in vm.stopInfo">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <route-prediction-info prediction-info="pred"></route-prediction-info>
+            <small class="text-muted">SouthBoundHiggins</small>
+            <div class="badge badge-success badge-pill" style="margin-right:15px">{{pred.minutes[0]}}</div>
+        </li>
+    </div>
+</ul>

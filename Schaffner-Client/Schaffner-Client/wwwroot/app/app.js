@@ -7,7 +7,7 @@
     }
 
     var appModule = angular
-        .module("schaffner", ["ngResource", "ui.router"])
+        .module("schaffner", ["ngResource", "ui.router","ng-horizontal-timeline"])
         .config(location);
 
     appModule.config(function ($stateProvider) {
@@ -46,7 +46,7 @@
 
     });
 
-    appModule.value('componentBorders', true);
+    appModule.value('componentBorders', false);
 
     appModule.run(function (componentBorders) {
         if (componentBorders) {
