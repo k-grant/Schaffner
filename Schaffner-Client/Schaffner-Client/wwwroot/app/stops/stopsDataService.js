@@ -9,7 +9,7 @@
 
     function stopsDataService($resource, SchaffnerRestAPIBaseURL) {
 
-        var baseURL = SchaffnerRestAPIBaseURL;
+        var baseURL = SchaffnerRestAPIBaseURL + '/stops/';
         var baseURL2 = baseURL + ':stopId';
 
         function getStopPredictions(stopId) {
