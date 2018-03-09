@@ -6,6 +6,9 @@
 .timeline-container ol li a.selected::before {
     height: 25px !important;
     width: 25px !important;
+    background-color: cornflowerblue !important;
+    opacity: .9 !important;
+    border: 1px solid #383838 !important;
 }
 
 @media all and (max-width: 960px) {
@@ -85,3 +88,10 @@ body {
     opacity: 0.9;
 }
 
+.timeline-container ol:first-child li:first-child a::before {
+    background-color: linen !important;
+}
+
+.timeline-container ol:last-child li:last-child a::before {
+    background-color: aliceblue !important;
+}
