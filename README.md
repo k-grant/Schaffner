@@ -1,4 +1,4 @@
-# Shaffner
+# Schaffner
 Sample app for estimating predicted bus arrival times at a stop along a route.
 
 Solutions were built in Visual Studio 2017
