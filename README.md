@@ -30,6 +30,16 @@ Just make sure it is consistent.
 Tips/Tricks
 -Change the limitTo on the ng-repeat directive in stops-list.component to show up to 10 stops at once.
 
+Notes
+
+The following API calls are defined
+http://localhost:22280/api/stops/  - gets 2 predictions for all routes for all stops
+http://localhost:22280/api/stops/{id} gets 2 predictions for all routes for stop id = 
+http://localhost:22280/api/stops/info gets information about all stops
+http://localhost:22280/api/stops/info/{id} gets information about stop id =
+
+
+
 ![Optional Text](../master/sample2.png)
 
 
