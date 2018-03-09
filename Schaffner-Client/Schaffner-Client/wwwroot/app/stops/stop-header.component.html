@@ -1,20 +1,22 @@
 ﻿<a class="list-group-item list-group-item-action align-items-start">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Stop: {{vm.stopInfo.stop.id}}</h5>
+    <div >
+        <div class="row">
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Stop: {{vm.stopInfo.stop.id}}</h5>
+                </div>
+                <small class="text-muted">{{vm.stopInfo.stop.name}}.</small>
             </div>
-            <small class="text-muted">{{vm.stopInfo.stop.name}}.</small>
 
+            <div class="col" style="padding-top:0px">
+                <div class="badge badge-success badge-pill" style="font-size: 165%;opacity:.65;float:right;">{{vm.nextStopTime}}</div>
+                <small class="text-muted" style="padding-right:3px;padding-top:10px;float:right">On Time in</small>
+            </div>
         </div>
-
-        <div class="col-md-8" style="padding:10px">
-            <h-timeline events="vm.events" event-click="vm.logClickEvent()" selected-index="vm.index"></h-timeline>
-        </div>
-
-        <div class="col-md-2" style="padding-top:15px">
-            <small class="text-muted" style="vertical-align: text-top;">On Time in</small>
-            <div class="badge badge-success badge-pill" style="font-size: 165%;opacity: .65">{{vm.nextStopTime}}</div>
+        <div class="row">
+            <div class="col-md-12" style="padding:10px">
+                <h-timeline events="vm.events" event-click="vm.logClickEvent()" selected-index="vm.index"></h-timeline>
+            </div>
         </div>
     </div>
     <span class="navbar-toggler-icon"></span>
