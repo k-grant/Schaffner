@@ -33,10 +33,10 @@ Tips/Tricks
 Notes
 
 The following API calls are defined
-http://localhost:22280/api/stops/  - gets 2 predictions for all routes for all stops
-http://localhost:22280/api/stops/{id} gets 2 predictions for all routes for stop id = 
-http://localhost:22280/api/stops/info gets information about all stops
-http://localhost:22280/api/stops/info/{id} gets information about stop id =
+- http://localhost:22280/api/stops/  - gets 2 predictions for all routes for all stops
+- http://localhost:22280/api/stops/{id} gets 2 predictions for all routes for stop id = 
+- http://localhost:22280/api/stops/info gets information about all stops
+- http://localhost:22280/api/stops/info/{id} gets information about stop id =
 
 
 
